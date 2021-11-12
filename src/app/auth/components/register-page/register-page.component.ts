@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -9,15 +9,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class RegisterPageComponent implements OnInit {
 
-  registerForm = new FormGroup({
-    name: new FormControl(''),
-    paddelLevel: new FormControl(''),
-    password: new FormControl(''),
-    passwordConfirmation: new FormControl(''),
-    mail: new FormControl(''),
-  });
-
-  constructor() { }
+  registerForm = this.fb.group({
+    name: [''],
+    paddelLevel: [''],
+    password: [''],
+    passwordConfirmation: [''],
+    mail: ['']
+  })
+  
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
