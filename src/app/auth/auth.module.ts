@@ -4,6 +4,17 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 
+// angular material
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -11,7 +22,12 @@ import { RegisterPageComponent } from './components/register-page/register-page.
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class AuthModule { }
