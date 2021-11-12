@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 // angular material
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -27,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatAutocompleteModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }
