@@ -21,8 +21,8 @@ export class RegisterPageComponent implements OnInit {
     mail: ['']
   })
 
-  paddelLevels!: PaddelLevelApiResponse[];
-  filteredPaddelLevels!: Observable<PaddelLevelApiResponse[]>;
+  paddelLevels : PaddelLevelApiResponse[];
+  filteredPaddelLevels : Observable<PaddelLevelApiResponse[]>;
   
   constructor(private fb: FormBuilder, private authApiService: AuthApiService, private sweetalert: SweetalertService) { }
 
@@ -62,7 +62,7 @@ export class RegisterPageComponent implements OnInit {
       password_confirmation: params.passwordConfirmation,
       email: params.mail
     }).subscribe({
-      next: res =>{ this.sweetalert.success("Usuario creado correctamente")
+      next: res =>{ this.sweetalert.success("Usuario creado correctamente", "Por favor inicie sesión con el mismo");
     },
       error : err => {
         this.sweetalert.showApiErrors(err);
