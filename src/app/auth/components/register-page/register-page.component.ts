@@ -1,9 +1,10 @@
+import { PaddelLevelApiResponse } from './../../interfaces/paddel-level-api-response';
 import { SweetalertService } from './../../../core/services/sweetalert.service';
 import { AuthApiService } from './../../services/auth-api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { PaddelLevelApiResponse } from '../../interfaces/paddel-level-api-response';
 import { map, Observable } from 'rxjs';
+import { PreloadAllModules } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -50,11 +51,25 @@ export class RegisterPageComponent implements OnInit {
     return filtered;
   }
 
-  onRegisterSubmit() {
+  onRegisterSubmit():any {
     const params = this.registerForm.value;
     if (typeof params.paddelLevel == 'string') return this.sweetalert.warning("El nivel de padel es obligatorio", "Seleccione nivel propuesto") ;
     if (params.password != params.passwordConfirmation) return this.sweetalert.warning("La contraseña debe coincidir");
-    return this.sweetalert.success("Eres un máquina");
+    this.authApiService.register({
+      name: params.name,
+      paddle_level_id: params.paddelLevel.id,
+      password: params.password,
+      password_confirmation: params.passwordConfirmation,
+      email: params.mail
+    }).subscribe({
+      next: res =>{ this.sweetalert.success("Usuario creado correctamente")
+    },
+      error : err => {this.sweetalert.warning("Ya existe un usuario con este email")
+
+      }
+  }
+    )
+    
 
   }
 
