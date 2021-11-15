@@ -12,6 +12,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 
 
@@ -20,7 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
-      RegisterPageComponent
+      RegisterPageComponent,
+      LoginPageComponent
   ],
   imports: [
     CommonModule,
