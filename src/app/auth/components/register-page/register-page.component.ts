@@ -1,3 +1,4 @@
+import { SweetalertService } from './../../../core/services/sweetalert.service';
 import { AuthApiService } from './../../services/auth-api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -22,7 +23,7 @@ export class RegisterPageComponent implements OnInit {
   paddelLevels!: PaddelLevelApiResponse[];
   filteredPaddelLevels!: Observable<PaddelLevelApiResponse[]>;
   
-  constructor(private fb: FormBuilder, private authApiService: AuthApiService) { }
+  constructor(private fb: FormBuilder, private authApiService: AuthApiService, private sweetalert: SweetalertService) { }
 
   ngOnInit(): void {
     this.authApiService.getPaddleLevels().subscribe(res => {
@@ -50,7 +51,11 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    console.log(this.registerForm.value);
+    const params = this.registerForm.value;
+    if (typeof params.paddelLevel == 'string') return this.sweetalert.warning("El nivel de padel es obligatorio", "Seleccione nivel propuesto") ;
+    if (params.password != params.passwordConfirmation) return this.sweetalert.warning("La contraseña debe coincidir");
+    return this.sweetalert.success("Eres un máquina");
+
   }
 
 }
