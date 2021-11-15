@@ -64,8 +64,8 @@ export class RegisterPageComponent implements OnInit {
     }).subscribe({
       next: res =>{ this.sweetalert.success("Usuario creado correctamente")
     },
-      error : err => {this.sweetalert.warning("Ya existe un usuario con este email")
-
+      error : err => {
+        this.sweetalert.showApiErrors(err);
       }
   }
     )
