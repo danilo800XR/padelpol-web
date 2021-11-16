@@ -41,7 +41,6 @@ export class RegisterPageComponent implements OnInit {
 
     this.filteredPaddelLevels = this.registerForm.controls['paddelLevel'].valueChanges.pipe(
       map((value : string | PaddelLevelApiResponse) => {
-        // console.log(value);
         if (typeof value != 'string') 
           value = value.name;
         return this.filter(value);
@@ -71,7 +70,6 @@ export class RegisterPageComponent implements OnInit {
     }).subscribe({
       next: res =>{ 
         this.sweetalert.success("Usuario creado correctamente", "Por favor inicie sesión con el mismo");
-
     },
       error : err => {
         this.sweetalert.showApiErrors(err);

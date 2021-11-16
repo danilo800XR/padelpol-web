@@ -28,7 +28,6 @@ registerPagePath = `/${appRoutes.authModule}/${authRoutes.registerPage}`;
   }
 
   onLoginSubmit(){
-    console.log(this.loginForm.value);
     const params = this.loginForm.value;
     this.authApiService.login({
       password: params.password,
