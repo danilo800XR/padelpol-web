@@ -1,3 +1,4 @@
+import { LoadingService } from './../../../core/services/loading.service';
 import { authRoutes } from './../../auth-routes';
 import { appRoutes } from './../../../app-routes';
 import { PaddelLevelApiResponse } from './../../interfaces/paddel-level-api-response';
@@ -28,7 +29,9 @@ export class RegisterPageComponent implements OnInit {
   
   loginPagePath = `/${appRoutes.authModule}/${authRoutes.loginPage}`;
 
-  constructor(private fb: FormBuilder, private authApiService: AuthApiService, private sweetalert: SweetalertService) { }
+  constructor(private fb: FormBuilder,
+     private authApiService: AuthApiService,
+      private sweetalert: SweetalertService) { }
 
   ngOnInit(): void {
     this.authApiService.getPaddleLevels().subscribe(res => {
@@ -66,13 +69,16 @@ export class RegisterPageComponent implements OnInit {
       password_confirmation: params.passwordConfirmation,
       email: params.mail
     }).subscribe({
-      next: res =>{ this.sweetalert.success("Usuario creado correctamente", "Por favor inicie sesión con el mismo");
+      next: res =>{ 
+        this.sweetalert.success("Usuario creado correctamente", "Por favor inicie sesión con el mismo");
+
     },
       error : err => {
         this.sweetalert.showApiErrors(err);
       }
   }
-    )
+  )
+
     
 
   }
