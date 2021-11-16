@@ -1,3 +1,5 @@
+import { authRoutes } from './../../auth-routes';
+import { appRoutes } from './../../../app-routes';
 import { PaddelLevelApiResponse } from './../../interfaces/paddel-level-api-response';
 import { SweetalertService } from './../../../core/services/sweetalert.service';
 import { AuthApiService } from './../../services/auth-api.service';
@@ -24,6 +26,8 @@ export class RegisterPageComponent implements OnInit {
   paddelLevels : PaddelLevelApiResponse[];
   filteredPaddelLevels : Observable<PaddelLevelApiResponse[]>;
   
+  loginPagePath = `/${appRoutes.authModule}/${authRoutes.loginPage}`;
+
   constructor(private fb: FormBuilder, private authApiService: AuthApiService, private sweetalert: SweetalertService) { }
 
   ngOnInit(): void {
