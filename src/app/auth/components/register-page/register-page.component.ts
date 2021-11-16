@@ -1,7 +1,7 @@
 import { LoadingService } from './../../../core/services/loading.service';
 import { authRoutes } from './../../auth-routes';
 import { appRoutes } from './../../../app-routes';
-import { PaddelLevelApiResponse } from './../../interfaces/paddel-level-api-response';
+import { PaddelLevelApiResponse } from '../../../core/models/interfaces/paddel-level-api-response';
 import { SweetalertService } from './../../../core/services/sweetalert.service';
 import { AuthApiService } from './../../services/auth-api.service';
 import { Component, OnInit } from '@angular/core';
