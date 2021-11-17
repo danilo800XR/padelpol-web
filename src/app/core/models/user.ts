@@ -8,5 +8,12 @@ export class User {
     email: string;
     paddle_level: PaddelLevelApiResponse;
 
-    constructor(){}
+    constructor(data: User){
+        this.id = data.id;
+        this.rol = data.rol;
+        this.name = data.name;
+        this.email = data.email;
+        this.paddle_level = data.paddle_level;
+        //Object.assign(this, data);
+    }
 }

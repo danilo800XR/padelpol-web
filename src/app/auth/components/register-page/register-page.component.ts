@@ -1,3 +1,4 @@
+import { PadelpolApiService } from './../../../core/services/padelpol-api.service';
 import { LoadingService } from './../../../core/services/loading.service';
 import { authRoutes } from './../../auth-routes';
 import { appRoutes } from './../../../app-routes';
@@ -31,10 +32,11 @@ export class RegisterPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
      private authApiService: AuthApiService,
-      private sweetalert: SweetalertService) { }
+      private sweetalert: SweetalertService,
+      private coreApiServices: PadelpolApiService) { }
 
   ngOnInit(): void {
-    this.authApiService.getPaddleLevels().subscribe(res => {
+    this.coreApiServices.getPaddleLevels().subscribe(res => {
       this.paddelLevels = res;
       this.registerForm.controls['paddelLevel'].setValue('');
     });
