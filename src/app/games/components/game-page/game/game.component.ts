@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Game } from 'src/app/games/models/game';
 
 @Component({
   selector: 'app-game',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+
+  //Va a recibir un input desde la llamada del ngFor de games-page
+  @Input() game: Game;
 
   constructor() { }
 
