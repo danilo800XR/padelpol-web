@@ -45,7 +45,7 @@
         <div *ngIf="user" class="d-flex text-white position-absolute top-0 end-0 mt-2 me-2">
             <button mat-button class="px-0" [matMenuTriggerFor]="menu">
                 <mat-icon>person</mat-icon>
-                <span class="ms-1">Oliver</span>
+                <span class="ms-1">{{user.name}}</span>
                 <mat-icon>expand_more</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
@@ -66,7 +66,7 @@
                     <span>Mis partidos</span>
                 </button>
             </mat-menu>
-            <button mat-icon-button class="text-danger" onclick="logOut()">
+            <button mat-icon-button class="text-danger" onClick="logOut()">
                 <mat-icon>power_settings_new</mat-icon>
             </button>
         </div>
