@@ -1,3 +1,4 @@
+import { authRoutes } from './../auth-routes';
 import { LoginApiResponse } from './../interfaces/login-api-response';
 import { RegisterApiResponse } from './../interfaces/register-api-response';
 import { RegisterApiRequest } from './../interfaces/register-api-request';
@@ -16,9 +17,9 @@ export class AuthApiService {
   constructor(private http:HttpClient) { }
 
   register(params : RegisterApiRequest):Observable<RegisterApiResponse>{
-    return this.http.post<RegisterApiResponse>(`${config.apiUrl}/auth/register`, params);
+    return this.http.post<RegisterApiResponse>(`${config.apiUrl}/${config.authRoute}/${authRoutes.registerPage}`, params);
   }
   login(params : LoginApiRequest):Observable<LoginApiResponse>{
-    return this.http.post<LoginApiResponse>(`${config.apiUrl}/auth/login`, params);
+    return this.http.post<LoginApiResponse>(`${config.apiUrl}/${config.authRoute}/${authRoutes.loginPage}`, params);
   }
 }
