@@ -1,5 +1,4 @@
 import { GamesApiResponse } from './../interfaces/games-api-response';
-import { SessionStorageService } from './../../core/services/session-storage.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,15 +11,13 @@ import { Game } from '../models/game';
 })
 export class GameApiService {
 
-  constructor(private http: HttpClient, private sessionStorageService: SessionStorageService) { }
+  constructor(private http: HttpClient) { }
 
   getGames(): Observable<Game[]> {
-    return this.http.get<GamesApiResponse[]>(`${config.apiUrl}/games`, {
-      headers: { Authorization: `Bearer ${this.sessionStorageService.getItem("token")}` }
-    })
+    return this.http.get<GamesApiResponse[]>(`${config.apiUrl}/games`)
       .pipe(map((res: GamesApiResponse[]) => {
-        return res.map((g: GamesApiResponse)=>{
-          return new Game(<Game>Object.assign(g,{
+        return res.map((g: GamesApiResponse) => {
+          return new Game(<Game>Object.assign(g, {
             paddleLevel: g.paddle_level,
             courtPrice: g.court_price
           }));

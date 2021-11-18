@@ -43,11 +43,11 @@
                         </div>
                     </div>
                     <div class="col-6 text-end">
-                        <div class="d-inline-block position-relative text-center pointer mb-3"
-                            style="margin-right: 7%; z-index: 2;">
+                        <div class="d-inline-block position-relative text-center pointer mt-3"
+                            style="margin-left: 7%; z-index: 2;">
                             <span class="material-icons rounded-circle p-3 text-dark border-dark mb-2"
                                 style="border-style: dashed !important;">add</span>
-                            <div class="fs-6 text-dark" *ngIf="game.player3">{{game.player3.name}}</div>
+                            <div class="fs-6 text-dark" >{{game.player3?.name || 'Libre 3'}}</div>
                         </div>
                     </div>
                     <div class="col-6">
@@ -55,7 +55,7 @@
                             style="margin-left: 7%; z-index: 2;">
                             <span class="material-icons rounded-circle p-3 text-dark border-dark mb-2"
                                 style="border-style: dashed !important;">add</span>
-                            <div class="fs-6 text-dark" *ngIf="game.player2">{{game.player2.name}}</div>
+                            <div class="fs-6 text-dark" >{{game.player2?.name || 'Libre 2'}}</div>
                         </div>
                     </div>
                     <div class="col-6 text-end">
@@ -63,7 +63,7 @@
                             style="margin-right: 7%; z-index: 2;">
                             <span class="material-icons rounded-circle p-3 text-dark border-dark mb-2"
                                 style="border-style: dashed !important;">add</span>
-                            <div class="fs-6 text-dark" *ngIf="game.player4">{{game.player4.name}}</div>
+                            <div class="fs-6 text-dark" >{{game.player4?.name || 'Libre 4'}}</div>
                         </div>
                     </div>
                 </div>
