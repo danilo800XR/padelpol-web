@@ -1,3 +1,5 @@
+import { PermissionManager } from './../services/permission-manager';
+import { Permission } from './permission';
 import { PaddelLevelApiResponse } from './interfaces/paddel-level-api-response';
 import { Constructor } from "@angular/material/core/common-behaviors/constructor";
 
@@ -16,4 +18,9 @@ export class User {
         this.paddle_level = data.paddle_level;
         //Object.assign(this, data);
     }
+
+    can(permission: Permission){
+        return PermissionManager.allow(this.rol.toString(), permission);
+    }
+
 }

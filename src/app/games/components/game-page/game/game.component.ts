@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../core/services/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/app/games/models/game';
 
@@ -11,7 +12,7 @@ export class GameComponent implements OnInit {
   //Va a recibir un input desde la llamada del ngFor de games-page
   @Input() game: Game;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
